@@ -1,18 +1,9 @@
-Hello, My Friends  
-Thank you for having interest in this repository ! 
-
-To use this application, 
-
-1. make dev.js file inside config folder 
-2. put mongoDB info into dev.js file 
-3. Type  " npm install " inside the root directory  ( Download Server Dependencies ) 
-4. Type " npm install " inside the client directory ( Download Front-end Dependencies )
 
 
-If you have problem, feel free to ask me ^^ 
+# THE MOVIE API를 이용한 Movie app 개발
+[Movie-App 개발과정정리](https://www.notion.so/67bcb951549d4cf680cf4682c83fcddb)
 
-You can watch the tutorial for this app.
 
-https://www.youtube.com/channel/UCFyXA9x8lpL3EYWeYhj4C4Q?view_as=subscriber
+---
 
 
