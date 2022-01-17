@@ -56,6 +56,7 @@ function LandingPage() {
                {Movies && Movies.map((movie,index)=>( //Movies 정보가 fetch 되어야만
                    <React.Fragment key={index}>
                        <GridCard 
+                       landingPage
                         image={movie.poster_path ? `${IMAGE_BASE_URL}w500${movie.poster_path}`:null}
                         movieId={movie.id/*고유의 영화정보*/}
                         movieName ={movie.original_title}

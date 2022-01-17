@@ -11,9 +11,9 @@ function MovieInfo({Movie}) {
     <Descriptions.Item label="vote_average" span={2}>
     {Movie.vote_average}
     </Descriptions.Item>
-    <Descriptions.Item label="release_date">{Movie.vote_count}</Descriptions.Item>
-    <Descriptions.Item label="revenue">{Movie.status}</Descriptions.Item>
-    <Descriptions.Item label="runtime">{Movie.popularity}</Descriptions.Item>
+    <Descriptions.Item label="vote_count">{Movie.vote_count}</Descriptions.Item>
+    <Descriptions.Item label="status">{Movie.status}</Descriptions.Item>
+    <Descriptions.Item label="popularity">{Movie.popularity}</Descriptions.Item>
     </Descriptions>
     )
 }
