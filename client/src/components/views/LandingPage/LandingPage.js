@@ -15,7 +15,7 @@ function LandingPage() {
     const [MainMovieImage,setMainMovieImage]=useState(null);
     const [CurrentPage,setCurrentPage]=useState(0); // fetch 후에 증가
 
-    useEffect(()=>{ // mount 시에 호출
+    useEffect(()=>{ // mount 시에 호출 -> 1page fetch 
         const endpoint=`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
         fetchMovies(endpoint);
 
@@ -53,7 +53,7 @@ function LandingPage() {
             <hr/>
 
            <Row gutter={[16,16]}>
-               {Movies && Movies.map((movie,index)=>(
+               {Movies && Movies.map((movie,index)=>( //Movies 정보가 fetch 되어야만
                    <React.Fragment key={index}>
                        <GridCard 
                         image={movie.poster_path ? `${IMAGE_BASE_URL}w500${movie.poster_path}`:null}
