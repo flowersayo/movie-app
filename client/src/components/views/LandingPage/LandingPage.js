@@ -22,12 +22,9 @@ function LandingPage() {
     },[])
   
     const fetchMovies = (endpoint)=>{
-        console.log(CurrentPage+1);
         fetch(endpoint)
         .then(response => response.json())
         .then(response =>{
-        
-            console.log(response);
             setMovies([...Movies,...response.results]); // 기존에 존재하던것 + 새로 fetch 한 것
             setMainMovieImage(response.results[0]); // 가장 인기있는 무비 Top1
             setCurrentPage(response.page);
