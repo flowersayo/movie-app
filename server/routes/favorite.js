@@ -34,4 +34,36 @@ router.post('/favorited',(request,response)=>{
            })
 })
    
+// 유저를 해당 영화에 좋아요 누른 사람 리스트에서 제거.
+router.post('/removeFromFavorite',(request,response)=>{ 
+   Favorite.findOneAndDelete({'movieId': request.body.movieId ,'userFrom': request.body.userFrom}) // 이 두 조건에 해당하는 db모델 지우기. 
+   .exec((err,doc)=>{
+        if(err) return response.status(400).send(err);
+        else response.status(200).json({success: true,doc :doc}); 
+   })
+})
+
+router.post('/addToFavorite',(request,response)=>{ 
+   /*
+   인자로 같이 보낸것들 
+   let variables = { 
+        userFrom:userFrom, //누가 좋아요를 눌렀는지
+        movieId : movieId, // 어떤 영화를 좋아했는지
+        movieTitle:movieTitle,
+        moviePost: moviePost, 
+        movieRunTime: movieRunTime
+        //좋아요 눌렀을 때 DB에 사용자 정보를 추가할때 필요한 정보들. 
+    
+    }
+   */
+    //request.body에 프론트에서 인자로 같이 보낸 것들 들어있음
+   const favorite = new Favorite(request.body) //새로운 db모델 생성
+
+   favorite.save((err,doc)=>{ // 추가(=저장)
+       if(err) return response.status(400).send(err);
+       else response.status(200).json({success: true,doc :doc}) 
+   }); // favorite doc 에 다 들어감.
+})
+
+
    module.exports = router;
