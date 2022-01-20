@@ -4,6 +4,7 @@ import MainImage from '../Section/MainImage';
 import MovieInfo from './Section/MovieInfo';
 import GridCard from '../commons/GridCard';
 import {Row} from 'antd';
+import Favorite from './Section/Favorite';
 
 function MovieDetail(props) {
 
@@ -43,12 +44,14 @@ function MovieDetail(props) {
           title={Movie.original_title}
           text={Movie.overview}/>}
 
-             {/*Body*/}
-             <div style={{width: '85%', margin: '1rem auto'}}>
-
+            
+            <div style={{width: '85%', margin: '1rem auto'}}>
+            <div style={{ display: 'flex',justifyContent: 'flex-end'}}>
+                <Favorite movieId={movieId} movieInfo={Movie} userFrom={localStorage.getItem('userId')}/>
+            </div>
+                
              {Movie && <MovieInfo Movie={Movie}></MovieInfo>}
                  <br/>
-                 {/*Actor Grid*/} 
 
                  <div style={{display: 'flex', justifyContent: 'center', margin: '2rem'}}>
                      <button onClick={()=>setActorToggle(!ActorToggle)}>Toggle Actor View</button>
