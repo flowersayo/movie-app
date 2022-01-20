@@ -18,3 +18,20 @@ Favorite.find({"movieId" :request.body.movieId }) // 쿼리문.front에서 보�
  
 
 
+router.post('/favorited',(request,response)=>{ 
+   
+    //내가 이 영화를 Favorite 리스트에 넣었는지 정보를 DB에서 가져오기
+       Favorite.find({"movieId" :request.body.movieId,"userFrom" :request.body.userFrom }) // 해당 두 조건을 만족하는 정보 찾기
+           .exec((err,info)=>{ 
+               if(err) return response.status(400).send(arr)
+           
+               // 값이 [] : 해당 사용자가 favorite 리스트에 넣지 않음.
+               let result = false;
+               if(info.length!=0)
+               result=true;
+               // 그 다음에 프론트에 다시 숫자 정보를 보내주기.
+               response.status(200).json({success:true,favorited:result })//json 형식으로 좋아하는 사람이 몇명인지를 클라이언트에전달.
+           })
+})
+   
+   module.exports = router;
